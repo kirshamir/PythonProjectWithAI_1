@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic-Tac-Toe Web</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { margin: 20px auto; border-collapse: collapse; }
+        td { width: 60px; height: 60px; font-size: 2em; text-align: center; border: 2px solid #333; cursor: pointer; }
+        .info { margin: 20px; font-size: 1.2em; }
+        .btn { margin: 10px; padding: 8px 16px; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <h1>Tic-Tac-Toe (Web Mode)</h1>
+    <div class="info">
+        {% if winner %}
+            <strong>Winner: {{ winner }}</strong>
+        {% elif draw %}
+            <strong>It's a draw!</strong>
+        {% else %}
+            Current Player: <strong>{{ player }}</strong>
+        {% endif %}
+    </div>
+    <form method="post">
+        <table>
+            {% for i in range(3) %}
+            <tr>
+                {% for j in range(3) %}
+                <td>
+                    <button class="btn" name="move" value="{{ i * 3 + j }}" {% if board[i*3+j] != ' ' or winner or draw %}disabled{% endif %}>
+                        {{ board[i*3+j] }}
+                    </button>
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+    <form method="post">
+        <button class="btn" name="reset" value="1">Restart Game</button>
+    </form>
+</body>
+</html>
+

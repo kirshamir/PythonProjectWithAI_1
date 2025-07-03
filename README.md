@@ -3,7 +3,7 @@
 A simple Tic-Tac-Toe game implemented in Python with both console and GUI modes. The project is structured using OOP principles and includes automated tests.
 
 ## Features
-- Play Tic-Tac-Toe in the console or with a graphical user interface (GUI)
+- Play Tic-Tac-Toe in the console, with a graphical user interface (GUI), or in a web browser
 - Mode selection via command line argument
 - Clean, maintainable code using an abstract base class
 - Automated tests for core game logic using pytest
@@ -12,6 +12,7 @@ A simple Tic-Tac-Toe game implemented in Python with both console and GUI modes.
 - Python 3.7+
 - tkinter (usually included with Python)
 - pytest (for running tests)
+- Flask (for web mode)
 
 ## Installation
 1. Clone the repository:
@@ -28,6 +29,7 @@ A simple Tic-Tac-Toe game implemented in Python with both console and GUI modes.
 3. Install dependencies:
    ```sh
    pip install pytest
+   pip install flask
    ```
 
 ## Usage
@@ -41,6 +43,12 @@ Run the game in GUI mode:
 python main.py gui
 ```
 
+Run the game in web mode:
+```sh
+python main.py web
+```
+Open http://127.0.0.1:5000/ in your browser to play.
+
 ## Running Tests
 To run the automated tests:
 ```sh
@@ -52,8 +60,9 @@ pytest
 - `tictactoe_base.py` - Abstract base class for shared game logic
 - `tictactoe_console.py` - Console implementation
 - `tictactoe_gui.py` - GUI implementation
+- `tictactoe_web.py` - Web (Flask) implementation
+- `templates/tictactoe.html` - HTML template for web mode
 - `test_tictactoe_base.py` - Automated tests for core logic
 
 ## License
 MIT
-
